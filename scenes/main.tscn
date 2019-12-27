@@ -7,7 +7,7 @@
 [ext_resource path="res://scenes/wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/monster.tscn" type="PackedScene" id=6]
 
-[node name="root" type="Node2D"]
+[node name="main" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_left = -100000.0
@@ -20,7 +20,6 @@ stretch_mode = 2
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 218, 95 )
-speed = 80
 Bullet = ExtResource( 3 )
 
 [node name="View" parent="Player" instance=ExtResource( 4 )]
@@ -33,4 +32,7 @@ position = Vector2( 111.332, 97.6992 )
 position = Vector2( 115.876, 45.4415 )
 
 [node name="Monster" parent="." instance=ExtResource( 6 )]
-position = Vector2( 414.736, 182.105 )
+position = Vector2( 562.229, 268.023 )
+
+[node name="Monster2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -163.245, -113.126 )

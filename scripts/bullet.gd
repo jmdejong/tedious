@@ -7,14 +7,10 @@ var end = Vector2(dist, 0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var raycast = get_node("Ray")
 	$Ray.force_raycast_update()
-	#print($Ray.get_collider())
 	if $Ray.is_colliding():
 		end = to_local($Ray.get_collision_point())
 		attack($Ray.get_collider())
-		#print($Ray.get_collider())
-		#coll = $Ray.get_collider())
 
 func attack(node):
 	var health = node.get_node_or_null("Health")
