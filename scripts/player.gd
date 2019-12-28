@@ -3,7 +3,7 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-export var speed = 4000
+export var speed = 100
 export (PackedScene) var Bullet
 
 # Called when the node enters the scene tree for the first time.
@@ -27,7 +27,7 @@ func _physics_process(delta):
 	var velocity = Vector2()
 	velocity.x = int(Input.is_action_pressed('right')) - int(Input.is_action_pressed('left'))
 	velocity.y = int(Input.is_action_pressed('down')) - int(Input.is_action_pressed('up'))
-	velocity *= speed*delta
+	velocity *= speed
 	var mouse_position = get_global_mouse_position()
 	get_node("Head").look_at(mouse_position)
 	velocity = move_and_slide(velocity)

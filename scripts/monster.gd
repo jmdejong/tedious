@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 
-export var speed = 3500
+export var speed = 80
 export var sight_range = 500
 export var attack_range = 20
 
@@ -23,7 +23,7 @@ func _physics_process(delta):
 		else:
 			look_at(player.position)
 			var velocity = (player.position - position).normalized() * speed
-			move_and_slide(velocity * delta)
+			move_and_slide(velocity)
 	
 	if status == Status.ATTACK:
 		if position.distance_to(player.position) > attack_range:
