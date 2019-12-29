@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://img/sprites/grass_large.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/view.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/wall.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/monster.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/features/house.tscn" type="PackedScene" id=7]
 
 [node name="main" type="Node2D"]
 
@@ -42,3 +43,6 @@ position = Vector2( -385.435, -389.668 )
 
 [node name="Monster4" parent="." instance=ExtResource( 6 )]
 position = Vector2( -544.542, -332.205 )
+
+[node name="House" parent="." instance=ExtResource( 7 )]
+position = Vector2( 117.573, 343.674 )
