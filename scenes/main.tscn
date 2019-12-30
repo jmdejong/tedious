@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://img/sprites/grass_large.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -8,13 +8,18 @@
 [ext_resource path="res://scenes/monster.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/features/house.tscn" type="PackedScene" id=7]
 
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 260.255, 304.32, 2864.08, -1158.61, 3169.79, 1783.87, 184.636, 441.161, 180.65, 436.843, 44.245, 357.947, 142.285, 413.923, -1998.65, -1196.82, 157.633, 15.7896, 89.2115, 16.8423, -1772.88, 1728.11, 73.422, 131.579, 143.948, 132.632, 87.9228, 201.434, 50.951, 248.035, 92.9932, 272.831, 194.426, 328.659, 52.0551, 247.482, 152.574, 492.585, -34.6809, 381.934 )
+polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 4, 3, 5, 6 ), PoolIntArray( 7, 1, 8, 9 ), PoolIntArray( 10, 7, 9, 11 ), PoolIntArray( 8, 1, 0, 12 ), PoolIntArray( 12, 0, 13, 11 ), PoolIntArray( 10, 11, 13, 14 ), PoolIntArray( 6, 5, 15, 16 ), PoolIntArray( 17, 16, 15, 14 ), PoolIntArray( 18, 3, 2 ), PoolIntArray( 18, 2, 10 ), PoolIntArray( 19, 18, 10 ), PoolIntArray( 13, 17, 14 ), PoolIntArray( 19, 10, 14 ) ]
+outlines = [ PoolVector2Array( -1772.88, 1728.11, -1998.65, -1196.82, 2864.08, -1158.61, 3169.79, 1783.87 ), PoolVector2Array( 89.2115, 16.8423, 157.633, 15.7896, 143.948, 132.632, 73.422, 131.579 ), PoolVector2Array( 194.426, 328.659, 142.285, 413.923, 180.65, 436.843, 260.255, 304.32, 87.9228, 201.434, 52.0551, 247.482 ), PoolVector2Array( 184.636, 441.161, 152.574, 492.585, -34.6809, 381.934, 50.951, 248.035, 92.9932, 272.831, 44.245, 357.947 ) ]
+
 [node name="main" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_left = -100000.0
-margin_top = -100000.0
-margin_right = 100000.0
-margin_bottom = 100000.0
+margin_left = -100002.0
+margin_top = -100005.0
+margin_right = 99997.5
+margin_bottom = 99995.1
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 2
@@ -25,6 +30,11 @@ Bullet = ExtResource( 3 )
 
 [node name="View" parent="Player" instance=ExtResource( 4 )]
 current = true
+
+[node name="Nav" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Nav"]
+navpoly = SubResource( 1 )
 
 [node name="Wall" parent="." instance=ExtResource( 5 )]
 position = Vector2( 111.332, 97.6992 )
@@ -46,3 +56,4 @@ position = Vector2( -544.542, -332.205 )
 
 [node name="House" parent="." instance=ExtResource( 7 )]
 position = Vector2( 117.573, 343.674 )
+rotation = -1.028

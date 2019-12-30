@@ -7,6 +7,9 @@ export var attack_range = 20
 
 enum Status {IDLE, APPROACH, ATTACK}
 var status = Status.IDLE
+var path = PoolVector2Array()
+
+var threshold = 4
 
 func _physics_process(delta):
 	var player = get_node_or_null("/root/main/Player")
@@ -21,11 +24,32 @@ func _physics_process(delta):
 		if position.distance_to(player.position) < attack_range:
 			status = Status.ATTACK
 		else:
-			look_at(player.position)
-			var velocity = (player.position - position).normalized() * speed
-			move_and_slide(velocity)
+			if path.size() == 0:
+				var nav = get_node("/root/main/Nav")
+				path = nav.get_simple_path(position, player.position)
+			
+			follow_path(delta)
+			
 	
 	if status == Status.ATTACK:
 		if position.distance_to(player.position) > attack_range:
 			status = status.APPROACH
 	
+func follow_path(delta):
+	
+
+	var point = path[0]
+	var velocity = (point - position).normalized() * speed
+	if position.distance_to(point) < speed * delta:
+		path.remove(0)
+		if path.size() > 0:
+			point = path[0]
+		else:
+			return
+	
+	
+	look_at(point)
+	move_and_slide(velocity)
+	
+
+
