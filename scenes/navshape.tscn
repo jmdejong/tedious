@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/navshape.gd" type="Script" id=1]
+
+[node name="NavShape" type="NavigationPolygonInstance"]
+visible = false
+enabled = false
+script = ExtResource( 1 )

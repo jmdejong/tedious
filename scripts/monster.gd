@@ -27,8 +27,15 @@ func _physics_process(delta):
 			if path.size() == 0:
 				var nav = get_node("/root/main/Nav")
 				path = nav.get_simple_path(position, player.position)
-			
-			follow_path(delta)
+				var worldnav = get_node("/root/main/Nav/WorldNav")
+				print("MONSTER NAV")
+				for i in range(worldnav.navpoly.get_outline_count()):
+					print("mwol ", worldnav.navpoly.get_outline(i))
+				print("polycount ", worldnav.navpoly.get_polygon_count())
+				for i in range(worldnav.navpoly.get_polygon_count()):
+					print("mwp ", worldnav.navpoly.get_polygon(i))
+			else:
+				follow_path(delta)
 			
 	
 	if status == Status.ATTACK:
