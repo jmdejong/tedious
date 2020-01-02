@@ -2,15 +2,12 @@ extends KinematicBody2D
 
 
 export var speed = 100
-export (PackedScene) var Bullet
 
 
 
 func _input(event):
 	if event.is_action_pressed("fire"):
-		var bullet = Bullet.instance()
-		bullet.global_transform = $Head/Muzzle.global_transform
-		get_node("/root").add_child(bullet)
+		$Head/Gun.shoot()
 
 func _physics_process(delta):
 	var velocity = Vector2()
