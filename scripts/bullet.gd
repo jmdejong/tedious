@@ -5,7 +5,6 @@ export var damage = 1
 
 var end = Vector2(dist, 0)
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$Ray.force_raycast_update()
 	if $Ray.is_colliding():

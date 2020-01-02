@@ -1,24 +1,13 @@
 extends KinematicBody2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 export var speed = 100
 export (PackedScene) var Bullet
 
-# Called when the node enters the scene tree for the first time.
-#func _ready():
-	#pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
 func _input(event):
 	if event.is_action_pressed("fire"):
-		#var raycast = get_node("Head/Muzzle/RayCast2D")
-		#print(raycast)
-		#print(raycast.get_collider())
 		var bullet = Bullet.instance()
 		bullet.global_transform = $Head/Muzzle.global_transform
 		get_node("/root").add_child(bullet)

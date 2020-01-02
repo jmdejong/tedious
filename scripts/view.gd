@@ -8,11 +8,10 @@ export var zoom_speed_linear = 8
 export var zoom_speed_static = 1
 
 
-#var actual_zoom = target_zoom
 var target
 
 
-func move_toward(origin, destination, step_size):
+func move_to(origin, destination, step_size):
 	var dif = destination - origin
 	if step_size >= dif.length():
 		return destination
@@ -40,4 +39,4 @@ func _input(event):
 	
 func _process(delta):
 	zoom = zoom.linear_interpolate(target, delta * zoom_speed_linear)
-	zoom = move_toward(zoom, target, delta*zoom_speed_static)
+	zoom = move_to(zoom, target, delta*zoom_speed_static)
