@@ -1,13 +1,16 @@
 extends Node2D
 
-export (float) var dist = 1000.0
+export (float) var distance = 1000.0
+export (float) var distance_spread = 0.25
 export (float) var damage = 1.0
 export (float) var width = 1
 export (Color) var color = Color("#222")
 
 var end
+var dist
 
 func _ready():
+	dist = distance * (1 - distance_spread + 2 * distance_spread * randf())
 	end = Vector2(dist, 0)
 	$Ray.force_raycast_update()
 	if $Ray.is_colliding():

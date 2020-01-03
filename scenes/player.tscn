@@ -11,19 +11,24 @@ radius = 15.0
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
-Weapon = ExtResource( 5 )
+Weapons = [ ExtResource( 5 ), ExtResource( 4 ) ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Head" type="Node2D" parent="."]
+[node name="Body" type="Node2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="Head"]
+[node name="Sprite" type="Sprite" parent="Body"]
 texture = ExtResource( 2 )
 
-[node name="Gun" parent="Head" instance=ExtResource( 4 )]
-
-[node name="ShotGun" parent="Head" instance=ExtResource( 5 )]
+[node name="Hand" type="Node2D" parent="Body"]
+position = Vector2( 8, 0 )
 
 [node name="Health" parent="." instance=ExtResource( 3 )]
 health = 100.0
+
+[node name="Weapons" type="Node" parent="."]
+
+[node name="ShotGun" parent="Weapons" instance=ExtResource( 5 )]
+
+[node name="Rifle" parent="Weapons" instance=ExtResource( 4 )]
