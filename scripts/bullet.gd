@@ -1,14 +1,18 @@
 extends Node2D
 
-export var dist = 1000
-export var damage = 1
+export (float) var dist = 1000.0
+export (float) var damage = 1.0
 
-var end = Vector2(dist, 0)
+var end
 
 func _ready():
+	end = Vector2(dist, 0)
 	$Ray.force_raycast_update()
 	if $Ray.is_colliding():
-		end = to_local($Ray.get_collision_point())
+		var _end = to_local($Ray.get_collision_point())
+		if _end.length() > dist:
+			return
+		end = _end
 		attack($Ray.get_collider())
 
 func attack(node):

@@ -2,16 +2,16 @@
 
 [ext_resource path="res://img/sprites/grass_large.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/view.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scripts/nav.gd" type="Script" id=5]
-[ext_resource path="res://scenes/wall.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/monster.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/features/house.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/view.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/nav.gd" type="Script" id=4]
+[ext_resource path="res://scenes/block.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/monster.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/features/house.tscn" type="PackedScene" id=7]
 
 [sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( -1772.88, 1728.11, -1998.65, -1196.82, 2864.08, -1158.61, 3169.79, 1783.87 )
+vertices = PoolVector2Array( -34391.1, 29315.2, -34391.1, -21122.9, 42370.8, -21699.3, 42082.6, 29699.5 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
-outlines = [ PoolVector2Array( -1772.88, 1728.11, -1998.65, -1196.82, 2864.08, -1158.61, 3169.79, 1783.87 ) ]
+outlines = [ PoolVector2Array( -34391.1, 29315.2, -34391.1, -21122.9, 42370.8, -21699.3, 42082.6, 29699.5 ) ]
 
 [node name="main" type="Node2D"]
 
@@ -27,33 +27,41 @@ stretch_mode = 2
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 218, 95 )
 
-[node name="View" parent="Player" instance=ExtResource( 4 )]
+[node name="View" parent="Player" instance=ExtResource( 3 )]
 current = true
 
 [node name="Nav" type="Navigation2D" parent="."]
 
 [node name="WorldNav" type="NavigationPolygonInstance" parent="Nav"]
 navpoly = SubResource( 1 )
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
-[node name="Wall" parent="." instance=ExtResource( 6 )]
-position = Vector2( 111.332, 97.6992 )
+[node name="Environment" type="Node2D" parent="."]
 
-[node name="Wall2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 140.291, 55.422 )
+[node name="Block4" parent="Environment" instance=ExtResource( 5 )]
+position = Vector2( 363.411, 135.051 )
 
-[node name="Monster" parent="." instance=ExtResource( 7 )]
+[node name="Monster" parent="Environment" instance=ExtResource( 6 )]
 position = Vector2( 562.229, 268.023 )
 
-[node name="Monster2" parent="." instance=ExtResource( 7 )]
-position = Vector2( -412.833, -530.085 )
+[node name="Block2" parent="Environment" instance=ExtResource( 5 )]
+position = Vector2( 383.055, 111.724 )
 
-[node name="Monster3" parent="." instance=ExtResource( 7 )]
-position = Vector2( -385.435, -389.668 )
+[node name="Block" parent="Environment" instance=ExtResource( 5 )]
+position = Vector2( 325.351, 187.844 )
 
-[node name="Monster4" parent="." instance=ExtResource( 7 )]
-position = Vector2( -544.542, -332.205 )
-
-[node name="House" parent="." instance=ExtResource( 8 )]
+[node name="House" parent="Environment" instance=ExtResource( 7 )]
 position = Vector2( 117.573, 343.674 )
 rotation = -1.028
+
+[node name="Monster4" parent="Environment" instance=ExtResource( 6 )]
+position = Vector2( -544.542, -332.205 )
+
+[node name="Monster3" parent="Environment" instance=ExtResource( 6 )]
+position = Vector2( -385.435, -389.668 )
+
+[node name="Monster2" parent="Environment" instance=ExtResource( 6 )]
+position = Vector2( -412.833, -530.085 )
+
+[node name="Block3" parent="Environment" instance=ExtResource( 5 )]
+position = Vector2( 340.084, 159.606 )

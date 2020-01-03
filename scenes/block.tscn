@@ -11,7 +11,7 @@ vertices = PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 outlines = [ PoolVector2Array( -32, -32, 32, -32, 32, 32, -32, 32 ) ]
 
-[node name="Wall" type="StaticBody2D"]
+[node name="Block" type="StaticBody2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

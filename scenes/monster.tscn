@@ -18,3 +18,7 @@ shape = SubResource( 1 )
 
 [node name="Health" parent="." instance=ExtResource( 3 )]
 health = 5.0
+
+[node name="RethinkTimer" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="RethinkTimer" to="." method="_on_RethinkTimer_timeout"]

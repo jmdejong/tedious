@@ -11,7 +11,7 @@ var path = PoolVector2Array()
 
 var threshold = 4
 
-func _physics_process(delta):
+func _process(delta):
 	var player = get_node_or_null("/root/main/Player")
 	if player == null:
 		status = Status.IDLE
@@ -23,17 +23,18 @@ func _physics_process(delta):
 	if status == Status.APPROACH:
 		if position.distance_to(player.position) < attack_range:
 			status = Status.ATTACK
-		else:
-			if path.size() == 0:
-				var nav = get_node("/root/main/Nav")
-				path = nav.get_simple_path(position, player.position)
-			else:
-				follow_path(delta)
-			
+		elif path.empty():
+			var nav = get_node("/root/main/Nav")
+			path = nav.get_simple_path(position, player.position)
 	
 	if status == Status.ATTACK:
 		if position.distance_to(player.position) > attack_range:
 			status = status.APPROACH
+
+			
+func _physics_process(delta):
+	if status == Status.APPROACH and not path.empty():
+		follow_path(delta)
 	
 func follow_path(delta):
 	
@@ -47,9 +48,12 @@ func follow_path(delta):
 		else:
 			return
 	
-	
 	look_at(point)
 	move_and_slide(velocity)
 	
 
 
+
+
+func _on_RethinkTimer_timeout():
+	path = PoolVector2Array()
