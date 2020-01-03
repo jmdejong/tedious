@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://img/sprites/grass_large.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/block.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/monster.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/features/house.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/weapons/rifle.tscn" type="PackedScene" id=8]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( -34391.1, 29315.2, -34391.1, -21122.9, 42370.8, -21699.3, 42082.6, 29699.5 )
@@ -26,6 +27,7 @@ stretch_mode = 2
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 218, 95 )
+Weapon = ExtResource( 8 )
 
 [node name="View" parent="Player" instance=ExtResource( 3 )]
 current = true

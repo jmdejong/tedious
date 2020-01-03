@@ -2,6 +2,8 @@ extends Node2D
 
 export (float) var dist = 1000.0
 export (float) var damage = 1.0
+export (float) var width = 1
+export (Color) var color = Color("#222")
 
 var end
 
@@ -23,7 +25,7 @@ func attack(node):
 
 
 func _draw():
-	draw_line(Vector2(0, 0), end, Color("#222"))
+	draw_rect(Rect2(Vector2(0, -width/2), end + Vector2(0, width)), color)
 
 func _on_Timer_timeout():
 	queue_free()
