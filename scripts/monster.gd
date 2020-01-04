@@ -4,6 +4,7 @@ extends KinematicBody2D
 export var speed = 80
 export var sight_range = 500
 export var attack_range = 20
+export var shoot_chance = 0.3
 
 enum Status {IDLE, APPROACH, ATTACK}
 var status = Status.IDLE
@@ -58,5 +59,5 @@ func _on_ActTimer_timeout():
 			status = Status.APPROACH
 		elif $Eye.can_see(player):
 			look_at(player.global_position)
-			if randf() < 0.5:
-				$Weapon.shoot()
+			if randf() < shoot_chance:
+				$Hand.get_child(0).shoot()

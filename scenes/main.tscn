@@ -28,6 +28,7 @@ stretch_mode = 2
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 218, 95 )
+z_index = 1
 
 [node name="View" parent="Player" instance=ExtResource( 3 )]
 current = true
