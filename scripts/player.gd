@@ -15,6 +15,7 @@ func _ready():
 func arm(idx):
 	var hand = $Body/Hand
 	for child in hand.get_children():
+		child.stop_shooting()
 		hand.remove_child(child)
 	var weapon = weapons[idx]
 	weaponidx = idx
@@ -28,8 +29,11 @@ func select(idx, relative=false):
 
 func _input(event):
 	if event.is_action_pressed("fire"):
-		var weapon = weapons[weaponidx]
-		weapon.shoot()
+		var weapon = $Body/Hand.get_child(0)
+		weapon.start_shooting()
+	if event.is_action_released("fire"):
+		var weapon = $Body/Hand.get_child(0)
+		weapon.stop_shooting()
 	if event.is_action_pressed("next_weapon"):
 		select(1, true)
 	if event.is_action_pressed("previous_weapon"):

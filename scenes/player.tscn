@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://img/sprites/player.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/weapons/rifle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/weapons/shotgun.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/weapons/pistol.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/weapons/smg.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 15.0
@@ -35,3 +36,6 @@ on_death = 0
 [node name="Rifle" parent="Weapons" instance=ExtResource( 4 )]
 
 [node name="ShotGun" parent="Weapons" instance=ExtResource( 5 )]
+
+[node name="SMG" parent="Weapons" instance=ExtResource( 7 )]
+spread = 0.08
