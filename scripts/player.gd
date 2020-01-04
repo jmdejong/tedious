@@ -2,14 +2,14 @@ extends KinematicBody2D
 
 
 export var speed = 100
-export(Array, PackedScene) var Weapons
 
-var weapons = []
+var weapons
 var weaponidx = 0
 
 func _ready():
-	for Weapon in Weapons:
-		weapons.append(Weapon.instance())
+	weapons = $Weapons.get_children()
+	for weapon in weapons:
+		$Weapons.remove_child(weapon)
 	arm(0)
 
 func arm(idx):

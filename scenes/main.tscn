@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://img/sprites/grass_large.png" type="Texture" id=1]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://scenes/block.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/monster.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/features/house.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/features/farm.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/enemy.tscn" type="PackedScene" id=9]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( -34391.1, 29315.2, -34391.1, -21122.9, 42370.8, -21699.3, 42082.6, 29699.5 )
@@ -39,29 +41,38 @@ script = ExtResource( 4 )
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Block4" parent="Environment" instance=ExtResource( 5 )]
-position = Vector2( 363.411, 135.051 )
+position = Vector2( 666.7, 493.009 )
 
 [node name="Monster" parent="Environment" instance=ExtResource( 6 )]
-position = Vector2( 562.229, 268.023 )
+position = Vector2( 1322.38, 576.987 )
 
 [node name="Block2" parent="Environment" instance=ExtResource( 5 )]
-position = Vector2( 383.055, 111.724 )
+position = Vector2( 861.172, 386.345 )
 
 [node name="Block" parent="Environment" instance=ExtResource( 5 )]
-position = Vector2( 325.351, 187.844 )
+position = Vector2( 695.374, 433.5 )
 
 [node name="House" parent="Environment" instance=ExtResource( 7 )]
-position = Vector2( 117.573, 343.674 )
+position = Vector2( 587.385, 602.071 )
 rotation = -1.028
 
 [node name="Monster4" parent="Environment" instance=ExtResource( 6 )]
-position = Vector2( -544.542, -332.205 )
+position = Vector2( -2050.13, -685.307 )
 
 [node name="Monster3" parent="Environment" instance=ExtResource( 6 )]
-position = Vector2( -385.435, -389.668 )
+position = Vector2( -1817.46, -777.099 )
 
 [node name="Monster2" parent="Environment" instance=ExtResource( 6 )]
-position = Vector2( -412.833, -530.085 )
+position = Vector2( -2104.78, -588.935 )
 
 [node name="Block3" parent="Environment" instance=ExtResource( 5 )]
-position = Vector2( 340.084, 159.606 )
+position = Vector2( 618.337, 474.96 )
+
+[node name="Farm" parent="Environment" instance=ExtResource( 8 )]
+position = Vector2( -591.396, 690.386 )
+
+[node name="Enemy" parent="Environment" instance=ExtResource( 9 )]
+position = Vector2( -196.168, -711.108 )
+
+[node name="Enemy2" parent="Environment" instance=ExtResource( 9 )]
+position = Vector2( -53.946, -760.15 )

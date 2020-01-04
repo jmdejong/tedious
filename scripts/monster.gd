@@ -11,25 +11,6 @@ var path = PoolVector2Array()
 
 var threshold = 4
 
-func _process(delta):
-	var player = get_node_or_null("/root/main/Player")
-	if player == null:
-		status = Status.IDLE
-	
-	if status == Status.IDLE:
-		if player and position.distance_to(player.position) < sight_range:
-			status = Status.APPROACH
-	
-	if status == Status.APPROACH:
-		if position.distance_to(player.position) < attack_range:
-			status = Status.ATTACK
-		elif path.empty():
-			var nav = get_node("/root/main/Nav")
-			path = nav.get_simple_path(position, player.position)
-	
-	if status == Status.ATTACK:
-		if position.distance_to(player.position) > attack_range:
-			status = status.APPROACH
 
 			
 func _physics_process(delta):
@@ -50,10 +31,32 @@ func follow_path(delta):
 	
 	look_at(point)
 	move_and_slide(velocity)
-	
-
-
 
 
 func _on_RethinkTimer_timeout():
 	path = PoolVector2Array()
+
+
+func _on_ActTimer_timeout():
+	var player = get_node_or_null("/root/main/Player")
+	if player == null:
+		status = Status.IDLE
+	
+	if status == Status.IDLE:
+		if player and $Eye.can_see(player):
+			status = Status.APPROACH
+	
+	if status == Status.APPROACH:
+		if position.distance_to(player.position) < attack_range:
+			status = Status.ATTACK
+		elif path.empty():
+			var nav = get_node("/root/main/Nav")
+			path = nav.get_simple_path(position, player.position)
+	
+	if status == Status.ATTACK:
+		if position.distance_to(player.position) > attack_range:
+			status = Status.APPROACH
+		elif $Eye.can_see(player):
+			look_at(player.global_position)
+			if randf() < 0.5:
+				$Weapon.shoot()

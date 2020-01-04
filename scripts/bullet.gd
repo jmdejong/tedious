@@ -12,12 +12,10 @@ var dist
 func _ready():
 	dist = distance * (1 - distance_spread + 2 * distance_spread * randf())
 	end = Vector2(dist, 0)
+	$Ray.set_cast_to(end)
 	$Ray.force_raycast_update()
 	if $Ray.is_colliding():
-		var _end = to_local($Ray.get_collision_point())
-		if _end.length() > dist:
-			return
-		end = _end
+		end = to_local($Ray.get_collision_point())
 		attack($Ray.get_collider())
 
 func attack(node):
