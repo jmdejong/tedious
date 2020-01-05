@@ -5,6 +5,7 @@ export var speed = 80
 export var sight_range = 500
 export var attack_range = 20
 export var shoot_chance = 0.3
+export var accuracy = 0.1
 
 enum Status {IDLE, APPROACH, ATTACK}
 var status = Status.IDLE
@@ -59,5 +60,6 @@ func _on_ActTimer_timeout():
 			status = Status.APPROACH
 		elif $Eye.can_see(player):
 			look_at(player.global_position)
+			rotation += (randf() * 2 - 1) * accuracy
 			if randf() < shoot_chance:
 				$Hand.get_child(0).shoot()

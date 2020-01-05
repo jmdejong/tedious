@@ -28,7 +28,8 @@ texture = ExtResource( 2 )
 health = 100.0
 on_death = 0
 
-[node name="Weapons" type="Node" parent="."]
+[node name="Weapons" type="Node2D" parent="."]
+visible = false
 
 [node name="Pistol" parent="Weapons" instance=ExtResource( 6 )]
 

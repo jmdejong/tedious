@@ -25,6 +25,9 @@ margin_bottom = 99995.1
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 218, 95 )
@@ -36,6 +39,7 @@ current = true
 [node name="Nav" type="Navigation2D" parent="."]
 
 [node name="WorldNav" type="NavigationPolygonInstance" parent="Nav"]
+visible = false
 navpoly = SubResource( 1 )
 script = ExtResource( 4 )
 
@@ -55,7 +59,7 @@ position = Vector2( 695.374, 433.5 )
 
 [node name="House" parent="Environment" instance=ExtResource( 7 )]
 position = Vector2( 587.385, 602.071 )
-rotation = -1.028
+rotation = -2.40332
 
 [node name="Monster4" parent="Environment" instance=ExtResource( 6 )]
 position = Vector2( -2050.13, -685.307 )
@@ -77,3 +81,28 @@ position = Vector2( -196.168, -711.108 )
 
 [node name="Enemy2" parent="Environment" instance=ExtResource( 9 )]
 position = Vector2( -53.946, -760.15 )
+
+[node name="Enemy3" parent="Environment" instance=ExtResource( 9 )]
+position = Vector2( 587.385, 602.071 )
+rotation = -1.028
+
+[node name="Enemy4" parent="Environment" instance=ExtResource( 9 )]
+position = Vector2( -2.15845, 487.814 )
+
+[node name="Enemy5" parent="Environment" instance=ExtResource( 9 )]
+position = Vector2( -73.3879, 556.885 )
+
+[node name="Enemy6" parent="Environment" instance=ExtResource( 9 )]
+position = Vector2( -589.262, 259.016 )
+
+[node name="Enemy7" parent="Environment" instance=ExtResource( 9 )]
+position = Vector2( -714.453, 777.049 )
+
+[node name="Enemy9" parent="Environment" instance=ExtResource( 9 )]
+position = Vector2( -10.7923, 1020.96 )
+
+[node name="Enemy10" parent="Environment" instance=ExtResource( 9 )]
+position = Vector2( -4.31683, 1072.76 )
+
+[node name="Enemy8" parent="Environment" instance=ExtResource( 9 )]
+position = Vector2( -723.087, 897.923 )
