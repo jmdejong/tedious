@@ -49,14 +49,14 @@ func _on_ActTimer_timeout():
 			status = Status.APPROACH
 	
 	if status == Status.APPROACH:
-		if position.distance_to(player.position) < attack_range:
+		if position.distance_to(player.position) < attack_range and $Eye.can_see(player):
 			status = Status.ATTACK
 		elif path.empty():
 			var nav = get_node("/root/main/Nav")
 			path = nav.get_simple_path(position, player.position)
 	
 	if status == Status.ATTACK:
-		if position.distance_to(player.position) > attack_range:
+		if position.distance_to(player.position) > attack_range or not $Eye.can_see(player):
 			status = Status.APPROACH
 		elif $Eye.can_see(player):
 			look_at(player.global_position)

@@ -8,6 +8,7 @@ duration = 0.2
 
 [node name="Ray" type="RayCast2D" parent="."]
 cast_to = Vector2( 1e+06, 0 )
+collision_mask = 4
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1

@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/nav.gd" type="Script" id=3]
+[ext_resource path="res://scenes/features/house.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/randnav.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/view.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=11]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( -34391.1, 29315.2, -34391.1, -21122.9, 42370.8, -21699.3, 42082.6, 29699.5 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( -34391.1, 29315.2, -34391.1, -21122.9, 42370.8, -21699.3, 42082.6, 29699.5 ) ]
+
+[node name="main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 11 )]
+position = Vector2( 53.9561, 49.8879 )
+z_index = 5
+
+[node name="View" parent="Player" instance=ExtResource( 9 )]
+current = true
+
+[node name="Nav" type="Navigation2D" parent="."]
+
+[node name="WorldNav" type="NavigationPolygonInstance" parent="Nav"]
+visible = false
+navpoly = SubResource( 1 )
+script = ExtResource( 3 )
+
+[node name="RandNav" parent="." instance=ExtResource( 6 )]
+z_index = 10
+
+[node name="House" parent="." instance=ExtResource( 5 )]

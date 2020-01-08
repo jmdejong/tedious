@@ -83,6 +83,13 @@ previous_weapon={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="static"
+2d_physics/layer_2="dynamic"
+2d_physics/layer_3="projectile"
+2d_physics/layer_4="light"
+
 [rendering]
 
 quality/driver/driver_name="GLES2"
