@@ -23,7 +23,7 @@ shape = SubResource( 1 )
 texture = ExtResource( 1 )
 
 [node name="Health" parent="." instance=ExtResource( 2 )]
-health = 5.0
+health = 3.0
 
 [node name="RethinkTimer" type="Timer" parent="."]
 autostart = true

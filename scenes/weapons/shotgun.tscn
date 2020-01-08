@@ -12,7 +12,7 @@ nbullets = 10
 position = Vector2( 14, 0 )
 script = ExtResource( 3 )
 distance = 400.0
-damage = 0.15
+damage = 0.2
 width = 0.5
 
 [node name="Sprite" type="Sprite" parent="."]
