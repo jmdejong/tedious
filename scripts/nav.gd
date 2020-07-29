@@ -68,6 +68,6 @@ func _draw():
 	for i in range(0, navpoly.get_outline_count()):
 		var outline = navpoly.get_outline(i)
 		var color = Color(1, 0.2, 0)
-		for i in range(outline.size()):
-			draw_line(outline[i], getm(outline, i+1), color)
-			draw_circle(outline[i], 2, Color(1, 0, 1))
+		for j in range(outline.size()):
+			draw_line(outline[j], getm(outline, j+1), color)
+			draw_circle(outline[j], 2, Color(1, 0, 1))
